@@ -1,9 +1,59 @@
-<!doctype html>
-<html>
-  <head>
-    <title>This is the title of the webpage!</title>
-  </head>
-  <body>
-	<iframe width="560" height="315" src="https://www.youtube.com/embed/iNJ4WFDV_W4?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  </body>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fome de Música</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+<style>
+
+body{
+background-color: #590491;
+color: #ccc129;
+font-size: 20px;
+text-align: center;
+font-family: Arial;
+}
+
+</style>
+
+<script>
+
+var retorno;
+
+$.ajax({
+    url: "https://painel.bilheteriadigital.com/api/FomeDeMusica.php",
+    async: false,
+    type: "GET",
+    dataType: "html"
+
+}).done(function(resposta) {
+	retorno = resposta;
+	console.log(retorno);
+
+}).fail(function(jqXHR, textStatus ) {
+    console.log("Requesição falhou: " + textStatus);
+
+}).always(function() {
+	console.log("Funcionou!");
+	console.log(retorno);
+});
+
+</script>
+
+<div style="border-style: solid; border-width: 1px;">
+<p>
+
+<h4><script>document.write(retorno)</script></h4>
+
+</p>
+</div>
+
+</body>
 </html>
+
