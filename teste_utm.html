@@ -72,50 +72,50 @@
   <script src="js/main.js"></script>
 	
   <script>
-	  // Dynamic Content
-const dynamicContent = {
-    header: document.querySelector('.txt-rotate'),
-    title: document.querySelector('title')
-};
+		// Dynamic Content
+	const dynamicContent = {
+		header: document.querySelector('.txt-rotate'),
+		title: document.querySelector('title')
+	};
 
-// Keyword values to insert
-const keywordList = {
-    'data-science': {
-        header: 'Data Science',
-        title: 'Leonardo Fullana | Data Scientist'
-    },
-    'machine-learning': {
-        header: 'Machine Learning',
-        title: 'Leonardo Fullana | Machine Learning Specialist'
-    }
-};
+	// Keyword values to insert
+	const keywordList = {
+		'data-science': {
+			header: 'Data Science',
+			title: 'Leonardo Fullana | Data Scientist'
+		},
+		'machine-learning': {
+			header: 'Machine Learning',
+			title: 'Leonardo Fullana | Machine Learning Specialist'
+		}
+	};
 
-// Parse the URL parameter
-const getParameterByName = function (name, url) {
-    if (!url) url = window.location.href;
-    name = name.replace(/[\[\]]/g, "\\$&");
-    const regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, " "));
-};
+	// Parse the URL parameter
+	const getParameterByName = function (name, url) {
+		if (!url) url = window.location.href;
+		name = name.replace(/[\[\]]/g, "\\$&");
+		const regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+			results = regex.exec(url);
+		if (!results) return null;
+		if (!results[2]) return '';
+		return decodeURIComponent(results[2].replace(/\+/g, " "));
+	};
 
-// Insert content from keyword list
-const changeContent = function (list, keyword, content) {
-    const setup = list[keyword];
-    if(setup) {
-        Object.keys(setup).forEach(function (key) {
-            content[key].innerHTML = setup[key];
-        });
-    }
-};
+	// Insert content from keyword list
+	const changeContent = function (list, keyword, content) {
+		const setup = list[keyword];
+		if(setup) {
+			Object.keys(setup).forEach(function (key) {
+				content[key].innerHTML = setup[key];
+			});
+		}
+	};
 
-// Give the parameter a variable name
-const dynamicKeyword = getParameterByName('utm_term');
+	// Give the parameter a variable name
+	const dynamicKeyword = getParameterByName('utm_term');
 
-// Change content on a page
-changeContent(keywordList, dynamicKeyword, dynamicContent);
+	// Change content on a page
+	changeContent(keywordList, dynamicKeyword, dynamicContent);
   </script>
   </body>
 </html>
